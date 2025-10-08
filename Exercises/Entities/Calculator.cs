@@ -76,11 +76,11 @@ namespace Exercises.Entities
             if (tipoPagamento == 1)
             {
                 valor -= (valor * 0.1);
-                Console.WriteLine("Valor com desconto de 10%. R${0}", valor);
+                Console.WriteLine($"Valor com desconto de 10%. R${valor:F2}");
             }
             else
             {
-                Console.WriteLine("Valor sem Desconto. R${0}", valor);
+                Console.WriteLine($"Valor sem Desconto. R${valor:F2}");
             }
         }
 
