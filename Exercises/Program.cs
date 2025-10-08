@@ -47,10 +47,10 @@ try
 
     // Calculo de IMC
     Console.WriteLine("----- Calculo de IMC -----");
-    Console.Write("Escreva sua altura: ");
+    Console.Write("Escreva sua altura (m): ");
     var altura = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
 
-    Console.Write("Escreva seu peso: ");
+    Console.Write("Escreva seu peso (kg): ");
     var peso = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
 
     Calculator.CalcularIMC(peso, altura);

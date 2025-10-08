@@ -2,6 +2,7 @@
 
 static class Calculator
 {
+    // Média
     public static void Media(double primeiraNota, double segundaNota, double terceiraNota)
     {
         if (primeiraNota > 10 || segundaNota > 10 || terceiraNota > 10)
@@ -21,11 +22,13 @@ static class Calculator
             Console.WriteLine("Aluno reprovado.");
     }
 
+    // Verifica se o número é par ou ímpar
     public static bool VeficaParOuImpar(int num)
     {
         return num % 2 == 0;
     }
 
+    // Encontra o maior número em 2 inputs
     public static void MaiorNumero(int num1, int num2)
     {
         if (num1 == num2)
@@ -38,6 +41,7 @@ static class Calculator
             Console.WriteLine($"{num1} é menor que {num2}");
     }
 
+    // Calcula o IMC de uma pessoa
     public static void CalcularIMC(double peso, double altura)
     {
         var imc = peso / (altura * altura);
@@ -55,6 +59,7 @@ static class Calculator
             Console.WriteLine("Obesidade");
     }
 
+    // Verifica se os números são multiplos
     public static void Multiplos(int num1, int num2)
     {
         if (num1 % num2 == 0)
@@ -63,6 +68,7 @@ static class Calculator
             Console.WriteLine("Não são multiplos");
     }
 
+    // Adiciona desconto
     public static void Desconto(double valor, int tipoPagamento)
     {
         if (tipoPagamento == 1)
@@ -76,6 +82,7 @@ static class Calculator
         }
     }
 
+    // Verifica se é um triângulo e identifica se é Equilatero, Isóceles, ou Escaleno
     public static void ClassificarTriangulo(double primeiroLado, double segundoLado, double terceiroLado)
     {
         if (!(primeiroLado < (segundoLado + terceiroLado)
@@ -102,6 +109,7 @@ static class Calculator
         }
     }
 
+    // Média ponderada
     public static void MediaPonderada(double nota1, int peso1,
                                       double nota2, int peso2,
                                       double nota3, int peso3)
