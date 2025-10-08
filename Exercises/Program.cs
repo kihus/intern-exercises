@@ -1,9 +1,10 @@
 ﻿using Exercises.Entities;
-using Exercises.Services;
 using System.Globalization;
 
 try
 {
+
+
     // Média e Aprovação
     Console.WriteLine("----- Média e Aprovação -----");
     Console.WriteLine("Digite 3 notas do aluno(a): ");
