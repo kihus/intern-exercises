@@ -1,127 +1,95 @@
-﻿using Exercises.Entities;
-using System.Globalization;
+﻿using Exercises.Services;
 
 try
 {
+    string escolhaPadrao;
+    do
+    {
+        // Texto de apresentação das opções
+        Console.WriteLine("## Escolha sua Opção de Programa\n");
+        Console.WriteLine("Olá! Para continuar, por favor, escolha o programa que você deseja executar digitando o número correspondente à opção desejada (de 1 a 8).\n");
+
+        // Tabela de opções
+        Console.WriteLine("| Número | Programa |");
+        Console.WriteLine("| :---: | :--- |");
+        Console.WriteLine("| **1** | Média e Aprovação |");
+        Console.WriteLine("| **2** | Verificação de número par ou ímpar |");
+        Console.WriteLine("| **3** | Maior de dois números |");
+        Console.WriteLine("| **4** | Cálculo de IMC |");
+        Console.WriteLine("| **5** | Verificação de múltiplos |");
+        Console.WriteLine("| **6** | Desconto em produto |");
+        Console.WriteLine("| **7** | Classificação de triângulo |");
+        Console.WriteLine("| **8** | Média ponderada |");
+        Console.WriteLine("-------------------------------------------\n");
+
+        // Solicita a entrada do usuário
+        Console.Write("Digite o número da sua escolha (de 1 a 8): ");
+        var escolha = int.Parse(Console.ReadLine()!);
+
+        // Exemplo simples de como você pode usar a escolha em um switch (opcional, mas útil)
+        Console.WriteLine($"\nVocê escolheu a opção: {escolha}");
+
+        switch (escolha)
+        {
+            case 1:
+                // Média e Aprovação
+                MediaService.Media();
+                break;
+
+            case 2:
+                // Verificação de número par ou impar
+                VerficaNumeroParOuImparService.VerificaNumeroParOuImpar();
+                break;
+
+            case 3:
+
+                // Maior de dois números
+                MaiorDeDoisNumerosService.MaiorDeDoisNumeros();
+                break;
+
+            case 4:
+                // Calculo de IMC
+                CalculoIMCService.CalculoIMC();
+                break;
+
+            case 5:
+                // Verificação de múltiplos
+                VerificacMultiplosService.VerificaMultiplos();
+                break;
+
+            case 6:
+                // Desconto em produto
+                DescontoEmProdutoService.DescontoEmProduto();
+                break;
+
+            case 7:
+                // Classificação de triangulo
+                ClassificaTrianguloService.ClassificaTriangulo();
+                break;
+
+            case 8:
+                // Média ponderada
+                MediaPonderadaService.MediaPonderada();
+                break;
 
 
-    // Média e Aprovação
-    Console.WriteLine("----- Média e Aprovação -----");
-    Console.WriteLine("Digite 3 notas do aluno(a): ");
+            default:
+                Console.WriteLine("Deseja escolher outro exercício?");
+                break;
 
-    Console.Write("Primeira nota: ");
-    var primeiraNota = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
+        }
+        Console.WriteLine("Deseja escolher outro exercício?");
+        escolhaPadrao = Console.ReadLine()!;
+       
 
-    Console.Write("Segunda nota: ");
-    var segundaNota = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
+    } while (escolhaPadrao.ToLower() == "s" || escolhaPadrao.ToLower() == "sim");
 
-    Console.Write("Terceira nota: ");
-    var terceiraNota = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
-
-    Calculator.Media(primeiraNota, segundaNota, terceiraNota);
-    Console.WriteLine();
-
-    // Verificação de número par ou impar
-    Console.WriteLine("----- Verificação de número par ou impar -----");
-    Console.Write("Coloque um número inteiro: ");
-    var num = int.Parse(Console.ReadLine()!);
-
-    if (Calculator.VeficaParOuImpar(num))
-        Console.WriteLine("Número par");
-    else
-        Console.WriteLine("Número impar");
-
-    Console.WriteLine();
-
-    // Maior de dois números
-    Console.WriteLine("----- Maior de dois números -----");
-    Console.WriteLine("Escreva dois números");
-
-    Console.Write("Primeiro número: ");
-    var num1 = int.Parse(Console.ReadLine()!);
-
-    Console.Write("Primeiro número: ");
-    var num2 = int.Parse(Console.ReadLine()!);
-
-    Calculator.MaiorNumero(num1, num2);
-    Console.WriteLine();
-
-    // Calculo de IMC
-    Console.WriteLine("----- Calculo de IMC -----");
-    Console.Write("Escreva sua altura (m): ");
-    var altura = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
-
-    Console.Write("Escreva seu peso (kg): ");
-    var peso = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
-
-    Calculator.CalcularIMC(peso, altura);
-    Console.WriteLine();
-
-    // Verificação de múltiplos
-    Console.WriteLine("----- Verificação de múltiplos ----- ");
-    Console.WriteLine("Escreva 2 números inteiros");
-    var numMult1 = int.Parse(Console.ReadLine()!);
-    var numMult2 = int.Parse(Console.ReadLine()!);
-
-    Calculator.Multiplos(numMult1, numMult2);
-    Console.WriteLine();
-
-    // Desconto em produto
-    Console.WriteLine("----- Desconto em produto -----");
-    Console.Write("Digite o valor do produto: ");
-    var valorProd = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
-
-    Console.Write("Digite a forma de pagamento (1 - à vista, 2 - parcelado): ");
-    var formaPagamento = int.Parse(Console.ReadLine()!);
-
-    Calculator.Desconto(valorProd, formaPagamento);
-    Console.WriteLine();
-
-    // Classificação de triangulo
-    Console.WriteLine("----- Classificação de triangulo -----");
-    Console.WriteLine("Escreva os 3 lados do triangulo");
-
-    Console.Write("Primeiro lado: ");
-    var primeiroLado = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
-
-    Console.Write("Segundo lado: ");
-    var segundoLado = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
-
-    Console.Write("Terceiro lado: ");
-    var terceiroLado = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
-
-    Calculator.ClassificarTriangulo(primeiroLado, segundoLado, terceiroLado);
-    Console.WriteLine();
-
-    // Média ponderada
-    Console.WriteLine("----- Média ponderada -----");
-    Console.Write("Digite a primeira nota: ");
-    var nota1 = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
-
-    Console.Write("Digite o peso da nota: ");
-    var peso1 = int.Parse(Console.ReadLine()!);
-
-    Console.Write("Digite a segunda nota: ");
-    var nota2 = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
-
-    Console.Write("Digite o peso da nota: ");
-    var peso2 = int.Parse(Console.ReadLine()!);
-
-    Console.Write("Digite a terceira nota: ");
-    var nota3 = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
-
-    Console.Write("Digite o peso da nota: ");
-    var peso3 = int.Parse(Console.ReadLine()!);
-
-    Calculator.MediaPonderada(nota1, peso1,
-                              nota2, peso2,
-                              nota3, peso3);
 }
-catch(ArgumentException ex)
+catch (ArgumentException ex)
 {
     Console.WriteLine(ex.Message);
 }
-catch(Exception ex)
+catch (Exception ex)
 {
     Console.WriteLine(ex.Message);
 }
