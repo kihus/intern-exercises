@@ -2,7 +2,7 @@
 
 try
 {
-    char escolhaPadrao = 's';
+    string escolhaPadrao;
     do
     {
         // Texto de apresentação das opções
@@ -75,10 +75,14 @@ try
 
             default:
                 Console.WriteLine("Deseja escolher outro exercício?");
-                escolhaPadrao = char.Parse(Console.ReadLine()!);
                 break;
+
         }
-    } while (escolhaPadrao is 's' or 'S');
+        Console.WriteLine("Deseja escolher outro exercício?");
+        escolhaPadrao = Console.ReadLine()!;
+       
+
+    } while (escolhaPadrao.ToLower() == "s" || escolhaPadrao.ToLower() == "sim");
 
 }
 catch (ArgumentException ex)
