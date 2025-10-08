@@ -17,7 +17,6 @@ namespace Exercises.Entities
                 return;
             }
 
-
             var media = (primeiraNota + segundaNota + terceiraNota) / 3;
 
             Console.WriteLine($"Media do aluno: {media:F2}");
