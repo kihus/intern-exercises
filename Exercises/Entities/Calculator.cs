@@ -11,7 +11,7 @@ namespace Exercises.Entities
     {
         public static void Media(double primeiraNota, double segundaNota, double terceiraNota)
         {
-            if(primeiraNota > 10 || segundaNota > 10 || terceiraNota > 10)
+            if (primeiraNota > 10 || segundaNota > 10 || terceiraNota > 10)
             {
                 Console.WriteLine("As notas nao podem ser maiores que 10");
                 return;
@@ -86,6 +86,15 @@ namespace Exercises.Entities
 
         public static void ClassificarTriangulo(double primeiroLado, double segundoLado, double terceiroLado)
         {
+            if (!(primeiroLado < (segundoLado + terceiroLado)
+                && segundoLado < (primeiroLado + terceiroLado)
+                && terceiroLado < (primeiroLado + segundoLado)))
+            {
+                Console.WriteLine("Nao e um triangulo");
+                return;
+            }
+
+
             if (primeiroLado == segundoLado && segundoLado == terceiroLado)
             {
                 Console.WriteLine("Triângulo Equilátero");
@@ -102,11 +111,12 @@ namespace Exercises.Entities
             }
         }
 
-        public static void MediaPonderada(double nota1, int peso1, 
+        public static void MediaPonderada(double nota1, int peso1,
                                           double nota2, int peso2,
                                           double nota3, int peso3)
         {
-            var media = ((nota1 * peso1) + (nota2 * peso2) + (nota3 * peso3)) / (peso1 + peso2 + peso3);
+            var media = ((nota1 * peso1) + (nota2 * peso2) + (nota3 * peso3)) 
+                          / (peso1 + peso2 + peso3);
 
             switch (media)
             {
