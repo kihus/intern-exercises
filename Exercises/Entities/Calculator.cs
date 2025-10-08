@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace Exercises.Entities
 {
@@ -10,16 +11,17 @@ namespace Exercises.Entities
     {
         public static void Media(double primeiraNota, double segundaNota, double terceiraNota)
         {
-            if (!double.TryParse(Console.ReadLine(), out primeiraNota))
-                throw new ArgumentException("Precisa ser um número");
+            if(primeiraNota > 10 || segundaNota > 10 || terceiraNota > 10)
+            {
+                Console.WriteLine("As notas nao podem ser maiores que 10");
+                return;
+            }
 
-            if (!double.TryParse(Console.ReadLine(), out segundaNota))
-                throw new ArgumentException("Precisa ser um número");
-
-            if (!double.TryParse(Console.ReadLine(), out terceiraNota))
-                throw new ArgumentException("Precisa ser um número");
 
             var media = (primeiraNota + segundaNota + terceiraNota) / 3;
+
+            Console.WriteLine($"Media do aluno: {media:F2}");
+            Console.WriteLine();
 
             if (media >= 7)
                 Console.WriteLine("Parabéns! Aluno aprovado.");
