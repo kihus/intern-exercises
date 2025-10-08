@@ -9,4 +9,12 @@ internal class VerificaNumeroService
             throw new ArgumentException("Coloque um número");
         }
     }
+
+    public static void VerificaInt(int num)
+    {
+        if (!int.TryParse(Console.ReadLine(), out num))
+        {
+            throw new ArgumentException("Coloque um número");
+        }
+    }
 }
